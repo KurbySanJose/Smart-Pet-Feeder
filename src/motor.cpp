@@ -94,12 +94,12 @@ void stepMotor(int steps, bool clockwise = true) {
   
   motorMoving = true;
   
-  // Set direction
+  // Set direction and allow for settling time
   digitalWrite(MOTOR_DIR_PIN, clockwise ? HIGH : LOW);
-  delayMicroseconds(5); // Direction setup time
+  delay(1); // Increased delay for direction to settle
   
-  // Execute steps
-  for (int i = 0; i < abs(steps); i++) {
+  // Generate step pulses
+  for (int i = 0; i < steps; i++) {
     digitalWrite(MOTOR_STEP_PIN, HIGH);
     delayMicroseconds(5); // Pulse width
     digitalWrite(MOTOR_STEP_PIN, LOW);
@@ -115,6 +115,8 @@ void stepMotor(int steps, bool clockwise = true) {
   }
   
   motorMoving = false;
+  currentPosition += (clockwise ? steps : -steps);
+  Serial.printf("Stepped %d steps %s. New position: %d\n", steps, clockwise ? "CW" : "CCW", currentPosition);
 }
 
 void dispensePortion(int steps) {

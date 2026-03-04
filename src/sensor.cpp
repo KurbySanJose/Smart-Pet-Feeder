@@ -132,9 +132,12 @@ float readUltrasonicDistance() {
     byte lowByte = Wire.read();
     byte checksumReceived = Wire.read();
     
-    // Calculate distance in mm, then convert to cm
-    uint16_t distance_mm = (highByte << 8) | lowByte;
-    float distance_cm = distance_mm / 10.0;
+    // The raw value is time-of-flight in microseconds (us)
+    uint16_t time_us = (highByte << 8) | lowByte;
+
+    // Calculate distance in cm using speed of sound (343 m/s or 0.0343 cm/us)
+    // Distance = (Time * SpeedOfSound) / 2
+    float distance_cm = (time_us * 0.0343) / 2.0;
     
     // RCWL-9620 checksum calculation: sum of high and low bytes
     byte calculatedChecksum = (highByte + lowByte) & 0xFF;

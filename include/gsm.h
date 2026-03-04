@@ -67,11 +67,11 @@ void processGSMResponse();
 String formatPhoneNumber(const char* number);
 
 // Testing phone number (Philippines format)
-#define TEST_PHONE_NUMBER "+639291145133"
+#define TEST_PHONE_NUMBER "+639772739234"
 
 // SMS message templates (examples for testing)
 /*
- * Example SMS messages for testing with +639291145133:
+ * Example SMS messages for testing with +639772739234:
  * 
  * Auto Feed: "🤖 Smart Pet Feeder: Auto-fed CAT (20g) - Bowl was empty. Time: 14:30. Daily feeds: 3/8"
  * Manual Feed: "👤 Smart Pet Feeder: Manual feed DOG (50g) by button press. Time: 09:15"

@@ -5,9 +5,9 @@
 // ===============================================
 
 // === STEPPER MOTOR (DRV8825) ===
-#define MOTOR_STEP_PIN    2   // GPIO2 - Step signal
-#define MOTOR_DIR_PIN     1   // GPIO1 - Direction signal
-#define MOTOR_ENABLE_PIN  3   // GPIO3 - Enable (active LOW)
+#define MOTOR_STEP_PIN    A1   // GPIO2 - Step signal
+#define MOTOR_DIR_PIN     A0   // GPIO1 - Direction signal
+#define MOTOR_ENABLE_PIN  A2   // GPIO3 - Enable (active LOW)
 
 // === I2C ULTRASONIC SENSOR (RCWL-9620) ===
 #define I2C_SDA_PIN       8   // GPIO8 - SDA
@@ -22,14 +22,14 @@
 #define BUZZER_PIN        12  // GPIO12 - Buzzer for alerts
 
 // === GSM MODULE (SIM800L) - PHASE 5 ===
-#define GSM_RX_PIN        6   // GPIO6 - Connect to SIM800L TX
-#define GSM_TX_PIN        7   // GPIO7 - Connect to SIM800L RX  
+#define GSM_RX_PIN        17   // GPIO6 - Connect to SIM800L TX
+#define GSM_TX_PIN        18   // GPIO7 - Connect to SIM800L RX  
 #define GSM_RESET_PIN     13  // GPIO13 - Reset pin for SIM800L
 
 // === SYSTEM PARAMETERS ===
 // Bowl detection thresholds (in cm)
-#define BOWL_EMPTY_THRESHOLD    15  // If distance > 15cm, bowl is empty
-#define BOWL_FULL_THRESHOLD     8   // If distance < 8cm, bowl has food
+#define BOWL_EMPTY_THRESHOLD    6  // If distance > 6cm, bowl is empty
+#define BOWL_FULL_THRESHOLD     4.5   // If distance < 4.5cm, bowl has food
 
 // Feeding portions (in steps - will calibrate in testing)
 #define CAT_MIN_PORTION         500   // ~30g equivalent in motor steps
